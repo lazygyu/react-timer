@@ -1,0 +1,63 @@
+@use 'sass:math';
+
+:root {
+    --progress-bar-color: #69c;
+}
+
+$size: min(80vw, 80vh);
+
+div.timer {
+    position: relative;
+    border-radius: 50%;
+    font-family: monospace;
+
+    width: $size;
+    height: $size;
+
+    text-align: center;
+
+    .center {
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        div.time {
+            height: calc($size * 0.3);
+            line-height: calc($size * 0.3);
+            font-size: calc($size * 0.25);
+            color: white;
+            small {
+                font-size: 0.8em;
+                color: #aaa;
+            }
+        }
+        button {
+            height: calc($size * 0.2);
+            width: calc($size * 0.3);
+            border: none;
+            border-radius: calc($size * 0.1);
+            background: white;
+            color: #369;
+            font-size: calc($size * 0.05);
+        }
+    }
+
+    $length: 314;
+
+    svg {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-90deg);
+    }
+
+    svg.small {
+        width: 95%;
+        height: 95%;
+    }
+}

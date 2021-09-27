@@ -1,0 +1,22 @@
+div.historyList {
+    position: fixed;
+    top: 0;
+    bottom: 10vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    &.hide {
+        display: none;
+    }
+
+    div.historyItem {
+        height: 8vh;
+        line-height:8vh;
+        display: block;
+        border-bottom: 1px solid #aaa;
+    }
+}

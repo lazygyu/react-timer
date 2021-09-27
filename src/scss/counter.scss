@@ -1,0 +1,19 @@
+$unit: max(1vw, 1vh);
+
+div.counter {
+    position: absolute;
+    display: block;
+    top: $unit;
+    right: $unit;
+    min-width: calc($unit * 5);
+    height: calc($unit * 5);
+    padding: 0 $unit;
+    box-sizing: border-box;
+    border: none;
+    border-radius: calc($unit * 2.5);
+    background-color: gray;
+    line-height: calc($unit * 5);
+    text-align: center;
+    color: white;
+    font-size: calc($unit * 2.5);
+}
