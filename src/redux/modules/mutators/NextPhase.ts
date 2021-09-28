@@ -19,11 +19,20 @@ export class NextPhase extends AbstractMutator<TimerState, TimerActionTypes> {
   }
 
   private toReady(): TimerState {
-      console.log('to ready');
+    console.log("to ready");
     const { settings, current, history: oldHistory } = this.state;
-    let history = oldHistory.slice(); 
-    const cur = {duration: settings.duration, totalCount: settings.totalCount};
-    if (history.length > 0 && history.some(tar => tar.duration === cur.duration && tar.totalCount === cur.totalCount)) {
+    let history = oldHistory.slice();
+    const cur = {
+      duration: settings.duration,
+      totalCount: settings.totalCount,
+    };
+    if (
+      history.length > 0 &&
+      history.some(
+        (tar) =>
+          tar.duration === cur.duration && tar.totalCount === cur.totalCount
+      )
+    ) {
       // do nothing
     } else {
       history.push(cur);

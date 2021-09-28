@@ -52,7 +52,7 @@ export function Timer() {
     titleText = count.toString();
   } else if (phase === TimerPhase.READY) {
     totalLength = remainTimer / readyCount;
-  } 
+  }
 
   return (
     <div className="timer">

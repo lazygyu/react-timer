@@ -2,12 +2,15 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NextPhase } from "../redux/modules/mutators/NextPhase";
 import { Reset } from "../redux/modules/mutators/Reset";
-import { TimerPhase, TimerState } from "../redux/modules/timerModel";
-import '../scss/ToggleButton';
+import { TimerPhase } from "../redux/modules/timerModel";
+import { State } from "../redux/store";
+import "../scss/ToggleButton";
 
 export function ToggleButton() {
   const dispatch = useDispatch();
-  const phase = useSelector((state: {timer: TimerState}) => state.timer.current.phase);
+  const phase = useSelector(
+    (state: State) => state.timer.current.phase
+  );
 
   const start = () => {
     dispatch(new NextPhase().action());
@@ -20,7 +23,7 @@ export function ToggleButton() {
   );
 
   const stop = () => {
-      dispatch(new Reset().action());
+    dispatch(new Reset().action());
   };
 
   const btnStop = (

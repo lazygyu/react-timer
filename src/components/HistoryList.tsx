@@ -1,7 +1,5 @@
 import React from "react";
-import { useSelector, useStore } from "react-redux";
-import { TimerState } from "../redux/modules/timerModel";
-import { ViewState } from "../redux/modules/viewModel";
+import { useSelector } from "react-redux";
 import { HistoryItem } from "./HistoryItem";
 import '../scss/HistoryList.scss';
 import { State } from "../redux/store";

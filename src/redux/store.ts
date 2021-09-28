@@ -9,7 +9,5 @@ const reducer = combineReducers({
 
 const store = () => createStore(reducer);
 
-export type RootState = ReturnType<typeof store>;
 export type State = {timer: TimerState, view: ViewState};
-
 export default store();

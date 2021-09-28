@@ -1,7 +1,7 @@
-import React, { ChangeEvent, ChangeEventHandler, useRef } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SetHistoryOpened } from "../redux/modules/mutators/SetHistoryOpen";
-import { RootState, State } from "../redux/store";
+import { State } from "../redux/store";
 import "../scss/setter.scss";
 import { CountSetter } from "./CountSetter";
 
