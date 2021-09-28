@@ -8,4 +8,9 @@ div.setter {
     display: flex;
     flex-direction: row;
     justify-content: center;
+
+    &>button {
+        border: none;
+        background: none;
+    }
 }

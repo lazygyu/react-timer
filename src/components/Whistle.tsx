@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { useStore } from "react-redux";
-import { useAudio } from "../hooks/useAudio";
+import { useAudioUnlock } from "../hooks/useAudioUnlock";
 import { TimerPhase, TimerState } from "../redux/modules/timerModel";
 
 export function Whistle() {
-    const [playBig, stopBig] = useAudio('/audio/count_big.mp3');
-    const [playNormal, stopNormal] = useAudio('/audio/count_normal.mp3');
+    const [play, load] = useAudioUnlock();
 
     const state : {timer: TimerState} = useStore().getState();
 
@@ -16,21 +15,28 @@ export function Whistle() {
 
     const prevPhase = useRef<TimerPhase | undefined>(undefined);
 
+    load('big', 'audio/count_big.mp3');
+    load('normal', 'audio/count_normal.mp3');
+
     useEffect(() => {
         if (prevPhase.current !== undefined && phase !== TimerPhase.READY) {
-            playBig();
+            console.log('case 1');
+            play('big');
         }
         prevPhase.current = phase;
     }, [phase]);
 
     useEffect(() => {
-        if ((totalCount === 1 || phase === TimerPhase.READY) && remainTimer !== duration) {
-            playNormal();
+        if (
+            ((totalCount === 1 && phase > TimerPhase.IDLE) || (phase === TimerPhase.READY))  && remainTimer !== duration) {
+            console.log('case 2', totalCount, remainTimer, duration);
+            play('normal');
         }
     }, [sec]);
     useEffect(() => {
         if (totalCount > 1 && count !== totalCount) {
-            playNormal();
+            console.log('case 3');
+            play('normal');
         }
     }, [count]);
 

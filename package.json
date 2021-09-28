@@ -5,7 +5,8 @@
   "author": "lazygyu <lazygyu@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "build": "webpack"
   },
   "dependencies": {
     "react": "^17.0.2",

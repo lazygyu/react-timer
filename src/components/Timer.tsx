@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useAudio } from "../hooks/useAudio";
 import { DecreaseTimer } from "../redux/modules/mutators/DecreaseTimer";
 import { TimerPhase, TimerState } from "../redux/modules/timerModel";
 import "../scss/timer";

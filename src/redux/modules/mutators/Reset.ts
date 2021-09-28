@@ -12,7 +12,7 @@ export class Reset extends AbstractMutator<TimerState, TimerActionTypes> {
                 ...current,
                 phase: TimerPhase.IDLE,
                 count: 1,
-                remainTimer: settings.duration,
+                remainTimer: settings.readyCount,
             },
             history,
         };
