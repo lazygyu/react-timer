@@ -1,10 +1,12 @@
-# 필요 기능
+리액트 개발 연습용 타이머 앱입니다.
 
-- timer type
-    - timespan
-        - input time to measure
-        - touch start
-            - count down to start in 5s
-            - start
-            - beep every seconds
-            - ends
+```
+// install
+yarn
+
+// debug
+yarn start
+
+// build
+yarn build
+```
