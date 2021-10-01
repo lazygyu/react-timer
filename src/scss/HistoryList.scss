@@ -18,5 +18,21 @@ div.historyList {
         line-height:8vh;
         display: block;
         border-bottom: 1px solid #aaa;
+        position: relative;
+        font-size: 3vh;
+
+        button {
+            position: absolute;
+            top: 50%;
+            right: 1em;
+            height: 5vh;
+            width: 5vh;
+            font-size: 3vh;
+            transform: translateY(-50%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            background-color: red;
+        }
     }
 }

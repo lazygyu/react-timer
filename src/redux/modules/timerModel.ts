@@ -47,6 +47,7 @@ export enum TimerActionTypes {
   NEXT_PHASE = "next_phase",
   SET_DURATION_AND_COUNT = "set_duration_count",
   RESET = "reset",
+  REMOVE_HISTORY_ITEM = 'remove_history_item',
 }
 
 function reducer(state: TimerState = initialState, action: Action): TimerState {

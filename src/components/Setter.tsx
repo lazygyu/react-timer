@@ -15,7 +15,7 @@ export function Setter() {
   return (
     <div className="setter">
       <CountSetter />
-      <button onClick={toggleHistory}>🗓{opened ? 'o' : 'x'}</button>
+      <button onClick={toggleHistory}>🗓</button>
     </div>
   );
 }

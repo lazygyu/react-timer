@@ -1,3 +1,5 @@
+import { TimerActionTypes, TimerState } from "../timerModel";
+
 export abstract class AbstractMutator<STATETYPE, ACTIONTYPE> {
   public abstract readonly interests: ACTIONTYPE;
 
@@ -10,3 +12,5 @@ export abstract class AbstractMutator<STATETYPE, ACTIONTYPE> {
     };
   }
 }
+
+export abstract class TimerMutator extends AbstractMutator<TimerState, TimerActionTypes> {};
