@@ -19,7 +19,7 @@ export function Timer() {
 
   const processFrame = (deltaTime: number) => {
     if (phase === TimerPhase.IDLE) return;
-    dispatch(new DecreaseTimer(deltaTime).action());
+    dispatch(DecreaseTimer.action(deltaTime));
   };
 
   const animate = (time: number) => {

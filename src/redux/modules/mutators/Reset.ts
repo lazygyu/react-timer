@@ -1,8 +1,12 @@
 import { TimerActionTypes, TimerPhase, TimerState } from "../timerModel";
-import { AbstractMutator } from "./AbstractMutator";
+import { TimerMutator, TimerPayloadAction } from "./AbstractMutator";
 
-export class Reset extends AbstractMutator<TimerState, TimerActionTypes> {
+export class Reset extends TimerMutator {
   public interests: TimerActionTypes = TimerActionTypes.RESET;
+
+  static action(): TimerPayloadAction {
+    return new Reset().action();
+  }
 
   public apply(state: TimerState): TimerState {
     const { settings, current, history } = state;

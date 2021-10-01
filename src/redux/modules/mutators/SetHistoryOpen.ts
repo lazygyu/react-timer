@@ -1,13 +1,13 @@
-import { AbstractMutator } from "./AbstractMutator";
-import { ViewState, ViewActionTypes } from "../viewModel";
+import { ViewMutator, ViewPayloadAction } from "./AbstractMutator";
+import { ViewActionTypes } from "../viewModel";
 
-export class SetHistoryOpened extends AbstractMutator<
-  ViewState,
-  ViewActionTypes
-> {
+export class SetHistoryOpened extends ViewMutator {
   public interests: ViewActionTypes = ViewActionTypes.SET_HISTORY_OPENED;
-
   private opened: boolean;
+
+  static action(opened: boolean): ViewPayloadAction {
+    return new SetHistoryOpened(opened).action();
+  }
 
   constructor(opened: boolean) {
     super();

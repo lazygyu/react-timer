@@ -9,7 +9,7 @@ export function Setter() {
   const dispatch = useDispatch();
   const opened = useSelector((state: State) => state.view.historyOpened);
   const toggleHistory = () => {
-    dispatch(new SetHistoryOpened(!opened).action());
+    dispatch(SetHistoryOpened.action(!opened));
   }
 
   return (

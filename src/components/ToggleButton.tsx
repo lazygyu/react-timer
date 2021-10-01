@@ -13,7 +13,7 @@ export function ToggleButton() {
   );
 
   const start = () => {
-    dispatch(new NextPhase().action());
+    dispatch(NextPhase.action());
   };
 
   const btnStart = (
@@ -23,7 +23,7 @@ export function ToggleButton() {
   );
 
   const stop = () => {
-    dispatch(new Reset().action());
+    dispatch(Reset.action());
   };
 
   const btnStop = (

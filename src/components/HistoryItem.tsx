@@ -16,14 +16,14 @@ export function HistoryItem({
   const dispatch = useDispatch();
 
   const applyItem = () => {
-    dispatch(new SetDurationAndCount(duration, totalCount).action());
-    dispatch(new SetHistoryOpened(false).action());
+    dispatch(SetDurationAndCount.action(duration, totalCount));
+    dispatch(SetHistoryOpened.action(false));
   };
 
   const removeItem = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    dispatch(new RemoveHistoryItem(index).action());
+    dispatch(RemoveHistoryItem.action(index));
   };
 
   return (

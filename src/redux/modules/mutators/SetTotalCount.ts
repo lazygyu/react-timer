@@ -1,14 +1,15 @@
 import { TimerActionTypes, TimerState } from "../timerModel";
-import { AbstractMutator } from "./AbstractMutator";
+import { TimerMutator, TimerPayloadAction } from "./AbstractMutator";
 import { Reset } from "./Reset";
 
-export class SetTotalCount extends AbstractMutator<
-  TimerState,
-  TimerActionTypes
-> {
+export class SetTotalCount extends TimerMutator {
   public interests: TimerActionTypes = TimerActionTypes.SET_TOTAL_COUNT;
 
   private totalCount: number;
+
+  static action(totalCount: number): TimerPayloadAction {
+    return new SetTotalCount(totalCount).action();
+  }
 
   constructor(totalCount: number) {
     super();

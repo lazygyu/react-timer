@@ -1,5 +1,5 @@
 import { TimerActionTypes, TimerState } from "../timerModel";
-import { AbstractMutator } from "./AbstractMutator";
+import { TimerMutator, TimerPayloadAction } from "./AbstractMutator";
 import { Reset } from "./Reset";
 
 type HistoryItem = {
@@ -7,8 +7,12 @@ type HistoryItem = {
   totalCount: number;
 };
 
-export class LoadHistory extends AbstractMutator<TimerState, TimerActionTypes> {
+export class LoadHistory extends TimerMutator {
   public interests: TimerActionTypes = TimerActionTypes.LOAD_HISTORY;
+
+  static action(item: HistoryItem): TimerPayloadAction {
+    return new LoadHistory(item).action();
+  }
 
   private item: HistoryItem;
   constructor(item: HistoryItem) {

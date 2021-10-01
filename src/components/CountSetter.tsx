@@ -19,10 +19,10 @@ export function CountSetter() {
     const { name, value } = e.target;
     switch (name) {
       case "duration":
-        dispatch(new SetDuration(parseFloat(value) || 1).action());
+        dispatch(SetDuration.action(parseFloat(value) || 1));
         break;
       case "count":
-        dispatch(new SetTotalCount(parseInt(value, 10) || 1).action());
+        dispatch(SetTotalCount.action(parseInt(value, 10) || 1));
         break;
     }
   };

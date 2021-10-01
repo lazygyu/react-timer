@@ -1,14 +1,15 @@
 import { TimerActionTypes, TimerState } from "../timerModel";
-import { AbstractMutator } from "./AbstractMutator";
+import { TimerMutator, TimerPayloadAction } from "./AbstractMutator";
 import { NextPhase } from "./NextPhase";
 
-export class DecreaseTimer extends AbstractMutator<
-  TimerState,
-  TimerActionTypes
-> {
+export class DecreaseTimer extends TimerMutator {
   public interests: TimerActionTypes = TimerActionTypes.SET_REMAIN_TIME;
 
   private deltaTime: number;
+
+  static action(deltaTime: number) : TimerPayloadAction  {
+    return new DecreaseTimer(deltaTime).action();
+  }
 
   constructor(deltaTime: number) {
     super();

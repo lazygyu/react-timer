@@ -1,10 +1,14 @@
 import { TimerActionTypes, TimerPhase, TimerState } from "../timerModel";
-import { AbstractMutator } from "./AbstractMutator";
+import { TimerMutator, TimerPayloadAction } from "./AbstractMutator";
 
-export class NextPhase extends AbstractMutator<TimerState, TimerActionTypes> {
+export class NextPhase extends TimerMutator {
   public interests: TimerActionTypes = TimerActionTypes.NEXT_PHASE;
 
   private state: TimerState;
+
+  static action(): TimerPayloadAction {
+    return new NextPhase().action();
+  }
 
   public apply(state: TimerState): TimerState {
     this.state = state;
