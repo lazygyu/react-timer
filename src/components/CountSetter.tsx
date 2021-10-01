@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, FocusEventHandler } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SetDuration } from "../redux/modules/mutators/SetDuration";
 import { SetTotalCount } from "../redux/modules/mutators/SetTotalCount";
@@ -10,6 +10,11 @@ export function CountSetter() {
   const { totalCount, duration } = useSelector(
     (state: { timer: TimerState }) => state.timer.settings
   );
+
+  const selectAll: FocusEventHandler<HTMLInputElement> = (e) => {
+    const elem = e.target as HTMLInputElement
+    elem.select();
+  }
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     switch (name) {
@@ -32,6 +37,7 @@ export function CountSetter() {
         name="duration"
         value={duration}
         onChange={handleInput}
+        onFocus={selectAll}
         pattern="\\d+"
       />
       초 &times;
@@ -41,6 +47,7 @@ export function CountSetter() {
         name="count"
         value={totalCount}
         onChange={handleInput}
+        onFocus={selectAll}
         pattern="\\d+"
       />
       회
